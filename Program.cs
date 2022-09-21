@@ -71,12 +71,12 @@
 // int num = Convert.ToInt32(Console.ReadLine());
 
 // if (num % 2 ==0)
-// {
-//     Console.WriteLine ("Четное");
-// }
-// else Console.WriteLine ("Нечетное");
+//  {
+//      Console.WriteLine ("Четное");
+//  }
+//  else Console.WriteLine ("Нечетное");
 
-// Console.WriteLine((int.Parse(Console.ReadLine()) & 1) == 0? "Yes": "No");  // Второй Вариант
+//  Console.WriteLine((int.Parse(Console.ReadLine()) & 1) == 0? "Yes": "No");  // Второй Вариант
 
 
 
@@ -85,14 +85,130 @@
 // 5 -> 2, 4
 // 8 -> 2, 4, 6, 8
 
-Console.WriteLine("Введите число: ");
+// Console.WriteLine("Введите число: ");
 
-int n = Convert.ToInt32(Console.ReadLine());
+// int n = Convert.ToInt32(Console.ReadLine());
 
-int i = 2;
+// int i = 2;
 
-while (i < n+1)
-{
-    Console.Write(i++ + " ");  
-    i++;
-}
+// while (i < n+1)
+// {
+//     Console.Write(i++ + " ");  
+//     i++;
+// }
+
+// int a1 = 15;
+// int b1 = 21;
+// int c1 = 39;
+// int a2 = 12;
+// int b2 = 23;
+// int c2 = 33;
+// int a3 = 13;
+// int b3 = 22;
+// int c3 = 33;
+
+// int max = a1;
+// if(b1 > max) max = b1;
+// if(c1 > max) max = c1;
+
+// if(a2 > max) max = a2;
+// if(b2 > max) max = b2;
+// if(c2 > max) max = c2;
+
+// if(a3 > max) max = a3;
+// if(b3 > max) max = b3;
+// if(c3 > max) max = c3;
+
+// Console.WriteLine(max);
+
+// 9. Напишите программу, которая выводит случайное число из отрезка [10, 99] и показывает наибольшую цифру числа.
+// 78 -> 8 
+// 12-> 2 
+// 85 -> 8
+
+// int x = new Random().Next(10,99);
+
+// int a = x / 10;
+// int b = x % 10;
+// Console.WriteLine(x);
+// if(a > b)
+// {
+//     Console.WriteLine(a + " Больше");
+// }
+// else if (a < b)
+// {
+//     Console.WriteLine(b + " Больше");
+// }
+// else
+// {
+//     Console.WriteLine("Они равны");
+// }
+
+
+// 11. Напишите программу, которая выводит случайное трёхзначное число и удаляет вторую цифру этого числа.
+// 456 -> 46
+// 782 -> 72
+// 918 -> 98
+
+// int x = new Random().Next(100,1000);
+// Console.WriteLine(x);
+
+// int a = x / 100;
+// int b = x % 10;
+
+// Console.Write(a);
+// Console.WriteLine(b);       // ПОЧЕМУ МЫ КОГДА МЫ ДЕЛИМ ЧИСЛО НА 100 ПОЛУЧАЕТСЯ ЖЕ ДВУХЗНАЧНОЕ ЧИСЛО
+
+// 14. Напишите программу, которая принимает на вход число и проверяет, кратно ли оно одновременно 7 и 23.
+// 14 -> нет 
+// 46 -> нет 
+// 161 -> да
+
+// Console.WriteLine("Введите число ");
+// int num1 = Convert.ToInt32(Console.ReadLine());
+// int a = num1 % 7;
+// int b = num1 % 23;
+// if (a == 0 & b == 0)
+// {
+//     Console.WriteLine("Yes");
+// }
+// else
+// {
+//     Console.WriteLine("No");
+// }
+
+// 16. Напишите программу, которая принимает на вход два числа и проверяет, является ли одно число квадратом другого.
+// 5, 25  ->  да
+// -4, 16  ->  да
+// 25, 5  ->  да
+// 8,9  ->  нет
+
+// Console.WriteLine("Введите 1 число");
+// int a = Convert.ToInt32(Console.ReadLine());
+
+// Console.WriteLine("Введите 2 число");
+// int b = Convert.ToInt32(Console.ReadLine());
+
+// if (a == b*b || b == a*a)
+// {
+//     Console.WriteLine("Yes");
+// }
+// else
+// {
+//     Console.WriteLine("No");
+// }
+
+
+// Задача 10: Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа.
+
+// 456 -> 5
+// 782 -> 8
+// 918 -> 1
+
+Console.WriteLine("Введите число ");
+int x = Convert.ToInt32(Console.ReadLine());
+
+int a = x % 100;
+int b = a / 10;
+
+Console.Write(b);
