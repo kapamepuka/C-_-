@@ -311,19 +311,47 @@
 
 // 23432 -> да
 
-Console.WriteLine("Введите пятизначное число: ");
+// Console.WriteLine("Введите пятизначное число: ");
 
 
-string number = Console.ReadLine();
+// string number = Console.ReadLine();
 
-if (number.Length != 5)
-{
-    Console.WriteLine("Введите правильное число");
-}
-    if (number[0] == number[4] & number[1] == number[3])
-{
-    Console.WriteLine($"Ваше число {number} палиндроп.");
-}
-    else Console.WriteLine($"Ваше число {number} - НЕ палиндром.");
+// if (number.Length != 5)
+// {
+//     Console.WriteLine("Введите правильное число");
+// }
+//     if (number[0] == number[4] & number[1] == number[3])
+// {
+//     Console.WriteLine($"Ваше число {number} палиндроп.");
+// }
+//     else Console.WriteLine($"Ваше число {number} - НЕ палиндром.");
 
 
+// Задача 21
+
+// Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
+
+// A (3,6,8); B (2,1,-7), -> 15.84
+
+// A (7,-5, 0); B (1,-1,9) -> 11.53
+
+// Console.WriteLine("Введите координаты х точки А");
+// int a1 = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите координаты у точки А");
+// int a2 = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите координаты z точки А");
+// int a3 = Convert.ToInt32(Console.ReadLine());
+
+
+// Console.WriteLine("Введите координаты х точки В");
+// int b1 = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите координаты у точки В");
+// int b2 = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите координаты z точки B");
+// int b3 = Convert.ToInt32(Console.ReadLine());
+
+// // √((x2-x1)^2 )+(y2-y1)^2+(z2-z1)^2
+
+// double ab = Math.Sqrt(Math.Pow((a1-b1), 2) + Math.Pow((a2-b2), 2) + Math.Pow((a3-b3), 2));
+
+// Console.WriteLine($" Расстояние между точками = {ab}");
