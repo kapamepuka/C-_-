@@ -562,19 +562,19 @@
 
 // 2, 4 -> 16
 
-Console.WriteLine("Введите число А ");
-int a = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите число А ");
+// int a = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine("Введите число В ");
-int b = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите число В ");
+// int b = Convert.ToInt32(Console.ReadLine());
 
-int x = a;
+// int x = a;
 
-for (int i = 1; i < b; i++)
-{
-    x = x * a;
-}
-Console.WriteLine($"A в степени B равно: {x}");
+// for (int i = 1; i < b; i++)
+// {
+//     x = x * a;
+// }
+// Console.WriteLine($"A в степени B равно: {x}");
 
 
 
@@ -585,6 +585,18 @@ Console.WriteLine($"A в степени B равно: {x}");
 // 82 -> 10
 
 // 9012 -> 12
+
+Console.Clear();
+Console.WriteLine("Введите число");
+int n = Convert.ToInt32(Console.ReadLine());
+int sum = 0;
+while (n > 0)
+{
+    int b = n % 10;
+    n = n / 10;
+    sum = sum + b;
+}
+Console.WriteLine(sum);
 
 // Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
 
