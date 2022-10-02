@@ -604,20 +604,50 @@
 
 // 6, 1, 33 -> [6, 1, 33]
 
-int [] array = new int[8];
-int i  = 0;
-while (i < array.Length)
-{
-    array[i] = new Random().Next(0,10);
-    i++;
-}
-Console.WriteLine(String.Join(" ",array));
+// int [] array = new int[8];
+// int i  = 0;
+// while (i < array.Length)
+// {
+//     array[i] = new Random().Next(0,10);
+//     i++;
+// }
+// Console.WriteLine(String.Join(" ",array));
 
 
 // Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
 
 // [345, 897, 568, 234] -> 2
 
+
+int size = new Random().Next(2,20);
+int[] numbers = new int[size];
+ArrayRandom(numbers);
+PrintArray(numbers);
+int count = 0;
+
+for (int i = 0; i < numbers.Length; i++)
+if (numbers[i] % 2 == 0)
+count++;
+
+void ArrayRandom(int[] numbers)
+{
+    for(int i = 0; i < numbers.Length; i++)
+    {
+        numbers[i] = new Random().Next(100,1000);
+    }
+}
+void PrintArray(int[] numbers)
+{
+    Console.Write("[ ");
+    for(int i = 0; i < numbers.Length; i++)
+    {
+        Console.Write(numbers[i] + " ");
+    }
+    Console.Write("]");
+    
+}
+Console.WriteLine();
+Console.WriteLine($"всего {numbers.Length} чисел, {count} из них чётные");
 
 
 // Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
