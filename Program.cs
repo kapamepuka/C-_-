@@ -656,20 +656,65 @@
 
 // [-4, -6, 89, 6] -> 0
 
-int size = new Random().Next(2,20);
-int[] numbers = new int[size];
-RandomNumbers(numbers);
-PrintArray(numbers);
-int sum = 0;
+// int size = new Random().Next(2,20);
+// int[] numbers = new int[size];
+// RandomNumbers(numbers);
+// PrintArray(numbers);
+// int sum = 0;
 
-for (int i = 0; i < numbers.Length; i+=2)
-    sum = sum + numbers[i];
+// for (int i = 0; i < numbers.Length; i+=2)
+//     sum = sum + numbers[i];
+
+// void RandomNumbers(int[] numbers)
+// {
+//     for(int i = 0; i < numbers.Length; i++)
+//         {
+//             numbers[i] = new Random().Next(1,10);
+//         }
+// }
+// void PrintArray(int[] numbers)
+// {
+//     Console.Write("[ ");
+//     for(int i = 0; i < numbers.Length; i++)
+//         {
+//             Console.Write(numbers[i] + " ");
+//         }
+//     Console.Write("]");
+//     Console.WriteLine();
+// }
+// Console.WriteLine("Вот наш массив: ");
+// Console.WriteLine($"всего {numbers.Length} чисел, сумма элементов на нечётных позициях = {sum}");
+
+// Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+
+// [3 7 22 2 78] -> 76
+
+
+int size = new Random().Next(2,20);
+int [] numbers = new int[size];
+RandomNumbers(numbers);
+Console.WriteLine("Вот наш массив: ");
+PrintArray(numbers);
+int min = Int32.MaxValue;
+int max = Int32.MinValue;
+
+for (int i = 0; i < numbers.Length; i++)
+{
+    if (numbers[i] > max)
+        {
+            max = numbers[i];
+        }
+    if (numbers[i] < min)
+        {
+            min = numbers[i];
+        }
+}
 
 void RandomNumbers(int[] numbers)
 {
     for(int i = 0; i < numbers.Length; i++)
         {
-            numbers[i] = new Random().Next(1,10);
+            numbers[i] = Convert.ToInt32(new Random().Next(100,1000)) / 100;
         }
 }
 void PrintArray(int[] numbers)
@@ -682,10 +727,6 @@ void PrintArray(int[] numbers)
     Console.Write("]");
     Console.WriteLine();
 }
-Console.WriteLine("Вот наш массив: ");
-Console.WriteLine($"всего {numbers.Length} чисел, сумма элементов на нечётных позициях = {sum}");
 
-// Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
-
-// [3 7 22 2 78] -> 76
-
+Console.WriteLine($"всего {numbers.Length} чисел. Максимальное значение = {max}, минимальное значение = {min}");
+Console.WriteLine($"Разница между максимальным и минимальным значением = {max - min}");
