@@ -619,35 +619,35 @@
 // [345, 897, 568, 234] -> 2
 
 
-int size = new Random().Next(2,20);
-int[] numbers = new int[size];
-ArrayRandom(numbers);
-PrintArray(numbers);
-int count = 0;
+// int size = new Random().Next(2,20);
+// int[] numbers = new int[size];
+// ArrayRandom(numbers);
+// PrintArray(numbers);
+// int count = 0;
 
-for (int i = 0; i < numbers.Length; i++)
-if (numbers[i] % 2 == 0)
-count++;
+// for (int i = 0; i < numbers.Length; i++)
+// if (numbers[i] % 2 == 0)
+// count++;
 
-void ArrayRandom(int[] numbers)
-{
-    for(int i = 0; i < numbers.Length; i++)
-    {
-        numbers[i] = new Random().Next(100,1000);
-    }
-}
-void PrintArray(int[] numbers)
-{
-    Console.Write("[ ");
-    for(int i = 0; i < numbers.Length; i++)
-    {
-        Console.Write(numbers[i] + " ");
-    }
-    Console.Write("]");
+// void ArrayRandom(int[] numbers)
+// {
+//     for(int i = 0; i < numbers.Length; i++)
+//     {
+//         numbers[i] = new Random().Next(100,1000);
+//     }
+// }
+// void PrintArray(int[] numbers)
+// {
+//     Console.Write("[ ");
+//     for(int i = 0; i < numbers.Length; i++)
+//     {
+//         Console.Write(numbers[i] + " ");
+//     }
+//     Console.Write("]");
     
-}
-Console.WriteLine();
-Console.WriteLine($"всего {numbers.Length} чисел, {count} из них чётные");
+// }
+// Console.WriteLine();
+// Console.WriteLine($"всего {numbers.Length} чисел, {count} из них чётные");
 
 
 // Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
@@ -655,6 +655,35 @@ Console.WriteLine($"всего {numbers.Length} чисел, {count} из них 
 // [3, 7, 23, 12] -> 19
 
 // [-4, -6, 89, 6] -> 0
+
+int size = new Random().Next(2,20);
+int[] numbers = new int[size];
+RandomNumbers(numbers);
+PrintArray(numbers);
+int sum = 0;
+
+for (int i = 0; i < numbers.Length; i+=2)
+    sum = sum + numbers[i];
+
+void RandomNumbers(int[] numbers)
+{
+    for(int i = 0; i < numbers.Length; i++)
+        {
+            numbers[i] = new Random().Next(1,10);
+        }
+}
+void PrintArray(int[] numbers)
+{
+    Console.Write("[ ");
+    for(int i = 0; i < numbers.Length; i++)
+        {
+            Console.Write(numbers[i] + " ");
+        }
+    Console.Write("]");
+    Console.WriteLine();
+}
+Console.WriteLine("Вот наш массив: ");
+Console.WriteLine($"всего {numbers.Length} чисел, сумма элементов на нечётных позициях = {sum}");
 
 // Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
 
