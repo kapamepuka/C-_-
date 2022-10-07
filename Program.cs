@@ -690,43 +690,204 @@
 // [3 7 22 2 78] -> 76
 
 
-int size = new Random().Next(2,20);
-int [] numbers = new int[size];
-RandomNumbers(numbers);
-Console.WriteLine("Вот наш массив: ");
-PrintArray(numbers);
-int min = Int32.MaxValue;
-int max = Int32.MinValue;
+// int size = new Random().Next(2,20);
+// int [] numbers = new int[size];
+// RandomNumbers(numbers);
+// Console.WriteLine("Вот наш массив: ");
+// PrintArray(numbers);
+// int min = Int32.MaxValue;
+// int max = Int32.MinValue;
 
+// for (int i = 0; i < numbers.Length; i++)
+// {
+//     if (numbers[i] > max)
+//         {
+//             max = numbers[i];
+//         }
+//     if (numbers[i] < min)
+//         {
+//             min = numbers[i];
+//         }
+// }
+
+// void RandomNumbers(int[] numbers)
+// {
+//     for(int i = 0; i < numbers.Length; i++)
+//         {
+//             numbers[i] = Convert.ToInt32(new Random().Next(100,1000)) / 100;
+//         }
+// }
+// void PrintArray(int[] numbers)
+// {
+//     Console.Write("[ ");
+//     for(int i = 0; i < numbers.Length; i++)
+//         {
+//             Console.Write(numbers[i] + " ");
+//         }
+//     Console.Write("]");
+//     Console.WriteLine();
+// }
+
+// Console.WriteLine($"всего {numbers.Length} чисел. Максимальное значение = {max}, минимальное значение = {min}");
+// Console.WriteLine($"Разница между максимальным и минимальным значением = {max - min}");
+
+// Задача 39: Напишите программу, которая перернет одномерный массив 
+
+// [1 2 3 4 5] -> [5 4 3 2 1]
+
+
+
+// int [] x = {1, 2, 3, 4, 5};
+
+// for(int i = 0; i < x.Length; i++)
+// {
+//     x[i] = x[x.Length - 1 - i];
+//     Console.WriteLine($"{x[i]} ");
+// }
+
+
+// Задача 40: Напишите программу, которая принимает на вход три числа и проверяет, может ли существовать треугольник с такой длинной 
+
+
+// Console.WriteLine("Введите первое число: ");
+// int a = int.Parse(Console.ReadLine()!);
+
+// Console.WriteLine("Введите второе число: ");
+// int b = int.Parse(Console.ReadLine()!);
+
+// Console.WriteLine("Введите третье число: ");
+// int c = int.Parse(Console.ReadLine()!);
+
+// if (a < (b + c) & b < (c + a) & c < (a + b)) Console.WriteLine("Это треугольник");
+// else Console.WriteLine("Это НЕ треугольник");
+
+
+
+// Задача 42: Напишите программу, которая будет преобразовывать десятичное число в двоичное 
+
+
+// System.Console.Write($"Введите число ");
+// int dec = Convert.ToInt32(Console.ReadLine());
+
+// string binary = string.Empty;
+
+// while (dec != 0)
+// {
+//     binary = Convert.ToString(dec % 2) + binary;
+//     dec = dec / 2;
+// }
+
+// System.Console.WriteLine($"{binary}");
+
+// Задача 44: Не используя рекурсию, выведите первые N чисел Фибоначи. Первые два числа Фибоначи 0 и 1.
+
+// string Array(int[] arr)
+// {
+//     string result = "[";
+
+//     for (int i = 0; i < arr.Length; i++)
+//     {
+//         if (i < arr.Length - 1)
+//         {
+//             result = result + $"{arr[i]}, ";
+//         }
+//         else 
+//         {
+//             result = result + $"{arr[i]}";
+//         }
+//     }
+//     result = result + "]";
+//     return result;
+// }
+
+// System.Console.Write($"Введите число ");
+// int dec = Convert.ToInt32(Console.ReadLine());
+// int [] f = new int[dec];
+
+//     f[0] = 0;
+//     f[1] = 1;
+
+// for (int i = 2; i < dec; i++)
+// {
+//     f[i] = f[i - 1] + f[i - 2];
+// }
+
+// System.Console.WriteLine($"{dec} -> {Array(f)}");
+
+// Задача 45: Напишите программу котрая будет создавать копию заданного массива с помощью поэлементраного копирования.
+
+// Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
+
+// 0, 7, 8, -2, -2 -> 2
+
+// 1, -7, 567, 89, 223-> 3
+
+
+Console.Write("Введите числа через запятую: ");
+int[] numbers = StringToNum(Console.ReadLine());
+PrintArray(numbers);
+int sum = 0;
 for (int i = 0; i < numbers.Length; i++)
 {
-    if (numbers[i] > max)
+    if (numbers[i] > 0)
+    {
+        sum++;
+    }
+}
+Console.WriteLine();
+Console.WriteLine($"количество значений больше 0 = {sum}");
+
+
+int[] StringToNum(string input)
+{
+    int count = 1;
+    for (int i = 0; i < input.Length; i++)
+    {
+        if (input[i] == ',')
         {
-            max = numbers[i];
+            count++;
         }
-    if (numbers[i] < min)
+    }
+
+    int[] numbers = new int [count];
+    int index = 0;
+
+    for (int i = 0; i < input.Length; i++)
+    {
+        string temp = "";
+
+        while (input [i] != ',')
         {
-            min = numbers[i];
+        if(i != input.Length - 1)
+        {
+            temp += input [i].ToString();
+            i++;
         }
+        else
+        {
+            temp += input [i].ToString();
+            break;
+        }
+        }
+        numbers[index] = Convert.ToInt32(temp);
+        index++;
+    }
+    return numbers;
 }
 
-void RandomNumbers(int[] numbers)
-{
-    for(int i = 0; i < numbers.Length; i++)
-        {
-            numbers[i] = Convert.ToInt32(new Random().Next(100,1000)) / 100;
-        }
-}
-void PrintArray(int[] numbers)
+
+void PrintArray(int[] array)
 {
     Console.Write("[ ");
-    for(int i = 0; i < numbers.Length; i++)
-        {
-            Console.Write(numbers[i] + " ");
-        }
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write(array[i] + " ");
+    }
     Console.Write("]");
-    Console.WriteLine();
 }
 
-Console.WriteLine($"всего {numbers.Length} чисел. Максимальное значение = {max}, минимальное значение = {min}");
-Console.WriteLine($"Разница между максимальным и минимальным значением = {max - min}");
+
+// Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
+
+// b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
+
