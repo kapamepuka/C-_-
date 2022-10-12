@@ -917,40 +917,38 @@
 // 8 7,8 -7,1 9
 
 
-Console.WriteLine("введите количество строк");
-int linesVol = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("введите количество столбцов");
-int columnsVol = Convert.ToInt32(Console.ReadLine());
-double[,] numbers = new double[linesVol, columnsVol];
-ArrayRandom(numbers);
-PrintArray(numbers);
+// Console.WriteLine("введите количество строк");
+// int linesVol = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("введите количество столбцов");
+// int columnsVol = Convert.ToInt32(Console.ReadLine());
+// double[,] numbers = new double[linesVol, columnsVol];
+// ArrayRandom(numbers);
+// PrintArray(numbers);
 
-void ArrayRandom(double[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            array[i, j] = Convert.ToDouble(new Random().Next(-100, 100)) / 10;
-        }
-    }
-}
+// void ArrayRandom(double[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i, j] = Convert.ToDouble(new Random().Next(-100, 100)) / 10;
+//         }
+//     }
+// }
 
-void PrintArray(double[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        Console.Write("[ ");
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            Console.Write(array[i, j] + " ");
-        }
-        Console.Write("]");
-        Console.WriteLine("");
-    }
-}
-
-
+// void PrintArray(double[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         Console.Write("[ ");
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             Console.Write(array[i, j] + " ");
+//         }
+//         Console.Write("]");
+//         Console.WriteLine("");
+//     }
+// }
 
 
 
@@ -963,6 +961,52 @@ void PrintArray(double[,] array)
 // 5 9 2 3
 
 // 8 4 2 4
+
+Console.WriteLine("line numbers ");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("column number");
+int m = Convert.ToInt32(Console.ReadLine());
+int [,] numbers = new int [5,5];
+ArrayNumbers(numbers);
+
+
+if (n > numbers.GetLength(0) || m > numbers.GetLength(1))
+{
+    Console.WriteLine("no element");
+}
+else
+{
+    Console.WriteLine($"element is equal to {n} and {m} = {numbers[n-1,m-1]}");
+}
+
+
+void ArrayNumbers(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+        {        
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                array [i,j] = new Random().Next(0, 100);
+            }   
+        }
+}
+
+
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        Console.Write("[ ");
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i,j] + " ");
+        }   
+        Console.Write("]");
+        Console.WriteLine(""); 
+    }
+}
+PrintArray(numbers);
+
 
 // 17 -> такого числа в массиве нет
 
