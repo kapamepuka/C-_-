@@ -1145,33 +1145,105 @@
 
 // Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
 
-int [,] numbers = new int [3,4];
-ArrayNumbers(numbers);
-PrintArray(numbers);
-Console.WriteLine();
-NumberRowMinSumElements(numbers);
+// int [,] numbers = new int [3,4];
+// ArrayNumbers(numbers);
+// PrintArray(numbers);
+// Console.WriteLine();
+// NumberRowMinSumElements(numbers);
 
-void NumberRowMinSumElements(int[,] array)
+// void NumberRowMinSumElements(int[,] array)
+// {
+//     int minRow = 0;
+//     int minSumRow = 0;
+//     int sumRow = 0;
+//     for (int i = 0; i < numbers.GetLength(1); i++)
+//     {
+//         minRow += numbers[0, i];
+//     }
+//     for (int i = 0; i < numbers.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < numbers.GetLength(1); j++) sumRow += numbers[i, j];
+//         if (sumRow < minRow)
+//         {
+//             minRow = sumRow;
+//             minSumRow = i;
+//         }
+//         sumRow = 0;
+//     }
+//     Console.Write($"{minSumRow + 1} строка с наименьшей суммой");
+//     Console.WriteLine();
+// }
+
+// void ArrayNumbers(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//         {        
+//             for (int j = 0; j < array.GetLength(1); j++)
+//             {
+//                 array [i,j] = new Random().Next(0, 10);
+//             }   
+//         }
+// }
+
+
+// void PrintArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         Console.Write("[ ");
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             Console.Write(array[i,j] + " ");
+//         }   
+//         Console.Write("]");
+//         Console.WriteLine(""); 
+//     }
+// }
+
+
+
+
+
+// Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+// Например, даны 2 матрицы:
+// 2 4 | 3 4
+// 3 2 | 3 3
+// Результирующая матрица будет:
+// 18 20
+// 15 18
+int n = new Random().Next(1, 9);
+
+int[,] firstMartrix = new int[n, n];
+ArrayNumbers(firstMartrix);
+Console.WriteLine($"\nПервая матрица:");
+PrintArray(firstMartrix);
+
+int[,] secomdMartrix = new int[n, n];
+ArrayNumbers(secomdMartrix);
+Console.WriteLine($"\nВторая матрица:");
+PrintArray(secomdMartrix);
+
+
+int[,] resultMatrix = new int[n, n];
+
+MultiplyMatrix(firstMartrix, secomdMartrix, resultMatrix);
+Console.WriteLine($"\nПроизведение первой и второй матриц:");
+PrintArray(resultMatrix);
+
+void MultiplyMatrix(int[,] firstMartrix, int[,] secomdMartrix, int[,] resultMatrix)
 {
-    int minRow = 0;
-    int minSumRow = 0;
-    int sumRow = 0;
-    for (int i = 0; i < numbers.GetLength(1); i++)
+  for (int i = 0; i < resultMatrix.GetLength(0); i++)
+  {
+    for (int j = 0; j < resultMatrix.GetLength(1); j++)
     {
-        minRow += numbers[0, i];
+      int sum = 0;
+      for (int k = 0; k < firstMartrix.GetLength(1); k++)
+      {
+        sum += firstMartrix[i,k] * secomdMartrix[k,j];
+      }
+      resultMatrix[i,j] = sum;
     }
-    for (int i = 0; i < numbers.GetLength(0); i++)
-    {
-        for (int j = 0; j < numbers.GetLength(1); j++) sumRow += numbers[i, j];
-        if (sumRow < minRow)
-        {
-            minRow = sumRow;
-            minSumRow = i;
-        }
-        sumRow = 0;
-    }
-    Console.Write($"{minSumRow + 1} строка с наименьшей суммой");
-    Console.WriteLine();
+  }
 }
 
 void ArrayNumbers(int[,] array)
@@ -1180,7 +1252,7 @@ void ArrayNumbers(int[,] array)
         {        
             for (int j = 0; j < array.GetLength(1); j++)
             {
-                array [i,j] = new Random().Next(0, 10);
+                array [i,j] = new Random().Next(0, 9);
             }   
         }
 }
@@ -1200,17 +1272,6 @@ void PrintArray(int[,] array)
     }
 }
 
-
-
-
-
-// Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
-// Например, даны 2 матрицы:
-// 2 4 | 3 4
-// 3 2 | 3 3
-// Результирующая матрица будет:
-// 18 20
-// 15 18
 
 // Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
 // Массив размером 2 x 2 x 2
