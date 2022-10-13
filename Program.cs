@@ -1074,29 +1074,104 @@
 // 9 5 3 2
 // 8 4 4 2
 
-int [,] numbers = new int [3,3];
+// int [,] numbers = new int [3,3];
+// ArrayNumbers(numbers);
+// PrintArray(numbers);
+// Console.WriteLine();
+// Ordering(numbers);
+
+// void Ordering(int[,] array)
+// {
+//   for (int i = 0; i < array.GetLength(0); i++)
+//   {
+//     for (int j = 0; j < array.GetLength(1); j++)
+//     {
+//       for (int k = 0; k < array.GetLength(1) - 1; k++)
+//       {
+//         if (array[i, k] < array[i, k + 1])
+//         {
+//           int temp = array[i, k + 1];
+//           array[i, k + 1] = array[i, k];
+//           array[i, k] = temp;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// void ArrayNumbers(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//         {        
+//             for (int j = 0; j < array.GetLength(1); j++)
+//             {
+//                 array [i,j] = new Random().Next(0, 10);
+//             }   
+//         }
+// }
+
+
+// void PrintArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         Console.Write("[ ");
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             Console.Write(array[i,j] + " ");
+//         }   
+//         Console.Write("]");
+//         Console.WriteLine(""); 
+//     }
+// }
+
+
+// PrintArray(numbers);
+// Ordering(numbers);
+
+
+
+// Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+
+// Например, задан массив:
+
+// 1 4 7 2
+
+// 5 9 2 3
+
+// 8 4 2 4
+
+// 5 2 6 7
+
+// Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
+
+int [,] numbers = new int [3,4];
 ArrayNumbers(numbers);
 PrintArray(numbers);
 Console.WriteLine();
-Ordering(numbers);
+NumberRowMinSumElements(numbers);
 
-void Ordering(int[,] array)
+void NumberRowMinSumElements(int[,] array)
 {
-  for (int i = 0; i < array.GetLength(0); i++)
-  {
-    for (int j = 0; j < array.GetLength(1); j++)
+    int minRow = 0;
+    int minSumRow = 0;
+    int sumRow = 0;
+    for (int i = 0; i < numbers.GetLength(1); i++)
     {
-      for (int k = 0; k < array.GetLength(1) - 1; k++)
-      {
-        if (array[i, k] < array[i, k + 1])
-        {
-          int temp = array[i, k + 1];
-          array[i, k + 1] = array[i, k];
-          array[i, k] = temp;
-        }
-      }
+        minRow += numbers[0, i];
     }
-  }
+    for (int i = 0; i < numbers.GetLength(0); i++)
+    {
+        for (int j = 0; j < numbers.GetLength(1); j++) sumRow += numbers[i, j];
+        if (sumRow < minRow)
+        {
+            minRow = sumRow;
+            minSumRow = i;
+        }
+        sumRow = 0;
+    }
+    Console.Write($"{minSumRow + 1} строка с наименьшей суммой");
+    Console.WriteLine();
 }
 
 void ArrayNumbers(int[,] array)
@@ -1126,24 +1201,8 @@ void PrintArray(int[,] array)
 }
 
 
-PrintArray(numbers);
-Ordering(numbers);
 
 
-
-// Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
-
-// Например, задан массив:
-
-// 1 4 7 2
-
-// 5 9 2 3
-
-// 8 4 2 4
-
-// 5 2 6 7
-
-// Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
 
 // Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
 // Например, даны 2 матрицы:
