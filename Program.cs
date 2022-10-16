@@ -58,7 +58,7 @@
 //     if (num3 >= num1)
 //     Console.WriteLine(num3 + " Это большее число");
 // }
-    
+
 
 // Задача 6: Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка).
 
@@ -389,7 +389,7 @@
 // for (i = 0; i <= x; i++)
 // {
 //     sum = sum + i;
-    
+
 // }
 
 // Console.WriteLine(sum);
@@ -421,7 +421,7 @@
 // for (i = 1; i <= x; i++)
 // {
 //     sum = sum * i;
-    
+
 // }
 
 // Console.WriteLine(sum);
@@ -534,7 +534,7 @@
 //     for(int i = 0; i < arr.Length; i++)
 //     {
 //         if (x == arr[i]){res = "Число есть в массиве"; break;}
-        
+
 //         else {res = "Числа нет в массиве"; break;}
 //     }
 //     Console.WriteLine(res);
@@ -644,7 +644,7 @@
 //         Console.Write(numbers[i] + " ");
 //     }
 //     Console.Write("]");
-    
+
 // }
 // Console.WriteLine();
 // Console.WriteLine($"всего {numbers.Length} чисел, {count} из них чётные");
@@ -1211,66 +1211,68 @@
 // Результирующая матрица будет:
 // 18 20
 // 15 18
-int n = new Random().Next(1, 9);
-
-int[,] firstMartrix = new int[n, n];
-ArrayNumbers(firstMartrix);
-Console.WriteLine($"\nПервая матрица:");
-PrintArray(firstMartrix);
-
-int[,] secomdMartrix = new int[n, n];
-ArrayNumbers(secomdMartrix);
-Console.WriteLine($"\nВторая матрица:");
-PrintArray(secomdMartrix);
 
 
-int[,] resultMatrix = new int[n, n];
+// int n = new Random().Next(1, 9);
 
-MultiplyMatrix(firstMartrix, secomdMartrix, resultMatrix);
-Console.WriteLine($"\nПроизведение первой и второй матриц:");
-PrintArray(resultMatrix);
+// int[,] firstMartrix = new int[n, n];
+// ArrayNumbers(firstMartrix);
+// Console.WriteLine($"\nПервая матрица:");
+// PrintArray(firstMartrix);
 
-void MultiplyMatrix(int[,] firstMartrix, int[,] secomdMartrix, int[,] resultMatrix)
-{
-  for (int i = 0; i < resultMatrix.GetLength(0); i++)
-  {
-    for (int j = 0; j < resultMatrix.GetLength(1); j++)
-    {
-      int sum = 0;
-      for (int k = 0; k < firstMartrix.GetLength(1); k++)
-      {
-        sum += firstMartrix[i,k] * secomdMartrix[k,j];
-      }
-      resultMatrix[i,j] = sum;
-    }
-  }
-}
-
-void ArrayNumbers(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-        {        
-            for (int j = 0; j < array.GetLength(1); j++)
-            {
-                array [i,j] = new Random().Next(0, 9);
-            }   
-        }
-}
+// int[,] secomdMartrix = new int[n, n];
+// ArrayNumbers(secomdMartrix);
+// Console.WriteLine($"\nВторая матрица:");
+// PrintArray(secomdMartrix);
 
 
-void PrintArray(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        Console.Write("[ ");
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            Console.Write(array[i,j] + " ");
-        }   
-        Console.Write("]");
-        Console.WriteLine(""); 
-    }
-}
+// int[,] resultMatrix = new int[n, n];
+
+// MultiplyMatrix(firstMartrix, secomdMartrix, resultMatrix);
+// Console.WriteLine($"\nПроизведение первой и второй матриц:");
+// PrintArray(resultMatrix);
+
+// void MultiplyMatrix(int[,] firstMartrix, int[,] secomdMartrix, int[,] resultMatrix)
+// {
+//   for (int i = 0; i < resultMatrix.GetLength(0); i++)
+//   {
+//     for (int j = 0; j < resultMatrix.GetLength(1); j++)
+//     {
+//       int sum = 0;
+//       for (int k = 0; k < firstMartrix.GetLength(1); k++)
+//       {
+//         sum += firstMartrix[i,k] * secomdMartrix[k,j];
+//       }
+//       resultMatrix[i,j] = sum;
+//     }
+//   }
+// }
+
+// void ArrayNumbers(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//         {        
+//             for (int j = 0; j < array.GetLength(1); j++)
+//             {
+//                 array [i,j] = new Random().Next(0, 9);
+//             }   
+//         }
+// }
+
+
+// void PrintArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         Console.Write("[ ");
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             Console.Write(array[i,j] + " ");
+//         }   
+//         Console.Write("]");
+//         Console.WriteLine(""); 
+//     }
+// }
 
 
 // Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
@@ -1280,6 +1282,69 @@ void PrintArray(int[,] array)
 // 27(0,0,1) 90(0,1,1)
 // 26(1,0,1) 55(1,1,1)
 
+int x = 2;
+int y = 2;
+int z = 2;
+Console.WriteLine();
+
+int[,,] array3D = new int[x, y, z];
+CreateArray(array3D);
+WriteArray(array3D);
+
+
+void WriteArray (int[,,] array3D)
+{
+  for (int i = 0; i < array3D.GetLength(0); i++)
+  {
+    for (int j = 0; j < array3D.GetLength(1); j++)
+    {
+      Console.Write($"X({i}) Y({j}) ");
+      for (int k = 0; k < array3D.GetLength(2); k++)
+      {
+        Console.Write( $"Z({k})={array3D[i,j,k]}; ");
+      }
+      Console.WriteLine();
+    }
+    Console.WriteLine();
+  }
+}
+
+void CreateArray(int[,,] array3D)
+{
+  int[] temp = new int[array3D.GetLength(0) * array3D.GetLength(1) * array3D.GetLength(2)];
+  int  number;
+  for (int i = 0; i < temp.GetLength(0); i++)
+  {
+    temp[i] = new Random().Next(10, 100);
+    number = temp[i];
+    if (i >= 1)
+    {
+      for (int j = 0; j < i; j++)
+      {
+        while (temp[i] == temp[j])
+        {
+          temp[i] = new Random().Next(10, 100);
+          j = 0;
+          number = temp[i];
+        }
+          number = temp[i];
+      }
+    }
+  }
+  int count = 0; 
+  for (int x = 0; x < array3D.GetLength(0); x++)
+  {
+    for (int y = 0; y < array3D.GetLength(1); y++)
+    {
+      for (int z = 0; z < array3D.GetLength(2); z++)
+      {
+        array3D[x, y, z] = temp[count];
+        count++;
+      }
+    }
+  }
+}
+
 // Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
 // Например, на выходе получается вот такой массив:
 // 01 02 03 04
@@ -1287,3 +1352,45 @@ void PrintArray(int[,] array)
 // 11 16 15 06
 // 10 09 08 07
 
+// Задача 63: Задайте значение N. Напишите программу, которая выведет все натуральные числа в промежутке от 1 до N.
+// N = 5 -> "1, 2, 3, 4, 5"
+// N = 6 -> "1, 2, 3, 4, 5, 6"
+
+// Console.Write("Введи N: ");
+// int N = Convert.ToInt32(Console.ReadLine());
+
+// if (1>N)
+// for (int i = N; i <= 1; i++)
+//     Console.Write($" {i}");
+// else
+//     for (int i = 1; i <= N; i++)
+//         Console.Write($" {i}");
+
+// Задача 65: Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в промежутке от M до N.
+// M = 1; N = 5 -> "1, 2, 3, 4, 5"
+// M = 4; N = 8 -> "4, 6, 7, 8"
+
+// void NaturalNumb(int m, int n)
+// {
+//     if (m <= n)
+//     {
+        
+//         Console.Write($"{m}, ");
+//         NaturalNumb(m+1, n);
+//     }
+// }
+
+// NaturalNumb(5, 10);
+
+// Задача 67: Напишите программу, которая будет принимать на вход число и возвращать сумму его цифр.
+// 453 -> 12
+// 45 -> 9
+
+
+
+// Задача 69: Напишите программу, которая на вход принимает два числа A и B, и возводит число А в целую степень B с помощью рекурсии.
+// A = 3; B = 5 -> 243 (3⁵)
+// A = 2; B = 3 -> 8
+
+
+ 
