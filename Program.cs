@@ -1352,43 +1352,43 @@
 // 11 16 15 06
 // 10 09 08 07
 
-int n = 4;
-int[,] sqareMatrix = new int[n, n];
+// int n = 4;
+// int[,] sqareMatrix = new int[n, n];
 
-int temp = 1;
-int i = 0;
-int j = 0;
+// int temp = 1;
+// int i = 0;
+// int j = 0;
 
-while (temp <= sqareMatrix.GetLength(0) * sqareMatrix.GetLength(1))
-{
-  sqareMatrix[i, j] = temp;
-  temp++;
-  if (i <= j + 1 && i + j < sqareMatrix.GetLength(1) - 1)
-    j++;
-  else if (i < j && i + j >= sqareMatrix.GetLength(0) - 1)
-    i++;
-  else if (i >= j && i + j > sqareMatrix.GetLength(1) - 1)
-    j--;
-  else
-    i--;
-}
+// while (temp <= sqareMatrix.GetLength(0) * sqareMatrix.GetLength(1))
+// {
+//   sqareMatrix[i, j] = temp;
+//   temp++;
+//   if (i <= j + 1 && i + j < sqareMatrix.GetLength(1) - 1)
+//     j++;
+//   else if (i < j && i + j >= sqareMatrix.GetLength(0) - 1)
+//     i++;
+//   else if (i >= j && i + j > sqareMatrix.GetLength(1) - 1)
+//     j--;
+//   else
+//     i--;
+// }
 
-WriteArray(sqareMatrix);
+// WriteArray(sqareMatrix);
 
-void WriteArray (int[,] array)
-{
-  for (int i = 0; i < array.GetLength(0); i++)
-  {
-    for (int j = 0; j < array.GetLength(1); j++)
-    {
-      if (array[i,j] / 10 <= 0)
-      Console.Write($" {array[i,j]} ");
+// void WriteArray (int[,] array)
+// {
+//   for (int i = 0; i < array.GetLength(0); i++)
+//   {
+//     for (int j = 0; j < array.GetLength(1); j++)
+//     {
+//       if (array[i,j] / 10 <= 0)
+//       Console.Write($" {array[i,j]} ");
 
-      else Console.Write($"{array[i,j]} ");
-    }
-    Console.WriteLine();
-  }
-}
+//       else Console.Write($"{array[i,j]} ");
+//     }
+//     Console.WriteLine();
+//   }
+// }
 
 // Задача 63: Задайте значение N. Напишите программу, которая выведет все натуральные числа в промежутке от 1 до N.
 // N = 5 -> "1, 2, 3, 4, 5"
@@ -1431,4 +1431,28 @@ void WriteArray (int[,] array)
 // A = 2; B = 3 -> 8
 
 
- 
+
+
+// Задача 64: Задайте значение N. Напишите программу, которая выведет все натуральные числа в промежутке от N до 1. Выполнить с помощью рекурсии.
+
+// N = 5 -> "5, 4, 3, 2, 1"
+// N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"
+
+Console.WriteLine(find(5, 1));
+int find (int start, int target)
+{
+    Console.WriteLine(start);
+    if (start == target) return start;
+    else return find(start - 1, target);
+    
+}
+
+// Задача 66: Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
+
+// M = 1; N = 15 -> 120
+// M = 4; N = 8. -> 30
+
+// Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
+// m = 2, n = 3 -> A(m,n) = 9
+// m = 3, n = 2 -> A(m,n) = 29
+
