@@ -1438,19 +1438,38 @@
 // N = 5 -> "5, 4, 3, 2, 1"
 // N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"
 
-Console.WriteLine(find(5, 1));
-int find (int start, int target)
-{
-    Console.WriteLine(start);
-    if (start == target) return start;
-    else return find(start - 1, target);
+// Console.WriteLine(find(5, 1));
+// int find (int start, int target)
+// {
+//     Console.WriteLine(start);
+//     if (start == target) return start;
+//     else return find(start - 1, target);
     
-}
+// }
 
 // Задача 66: Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
 
 // M = 1; N = 15 -> 120
 // M = 4; N = 8. -> 30
+
+Console.WriteLine("Введите начальное число M:");
+int M = int.Parse(Console.ReadLine());
+
+Console.WriteLine("Введите начальное число M:");
+int N = int.Parse(Console.ReadLine());
+
+void GapNumberSum (int M, int N, int sum)
+{
+    if (M > N) 
+    {
+        Console.WriteLine($"Сумма натуральных элементов в промежутке от M до N: {sum}"); 
+        return;
+    }
+    sum = sum + (M++);
+    GapNumberSum(M, N, sum);
+}
+
+GapNumberSum(M, N, 0);
 
 // Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
 // m = 2, n = 3 -> A(m,n) = 9
